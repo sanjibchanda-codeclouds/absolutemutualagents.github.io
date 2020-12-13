@@ -1,0 +1,67 @@
+%btn {
+  width: auto;
+  display: inline-block;
+  font-size: 1.25rem;
+  font-weight: weight(smbold);
+  padding: 1.2rem 2rem;
+  font-family: $ff-heading;
+  text-align: center;
+  box-shadow: none;
+  border: 0;
+  text-decoration: none;
+  @include bd-radius(0.125rem);
+
+  @include hover-focus-active {
+    @include set-background(color(secondary));
+  }
+}
+%btn-light {
+  @extend %btn;
+  @include set-background(lighten(color(light), 10%));
+  text-decoration: none;
+}
+%btn-dark {
+  @extend %btn;
+  @include set-background(color(dark));
+  text-decoration: none;
+}
+.btn-sm {
+  @extend %btn;
+  font-size: 1.125rem;
+  padding: 0.5rem 1rem;
+  text-transform: uppercase;
+}
+.btn-primary {
+  @extend %btn;
+  max-width: 380px;
+  width: 100%;
+  @include set-background(color(primary));
+}
+.btn-secondary {
+  @extend %btn;
+  max-width: 300px;
+  width: 100%;
+  @include set-background(color(bg));
+  border: 1px solid $primary;
+  color: color(primary);
+  display: block;
+  margin: 0px auto;
+
+  @include hover-focus {
+    border: 1px solid $secondary;
+  }
+}
+
+.btn-comment {
+  @extend %btn;
+  @include set-background(color(primary));
+  font-size: 0.75rem;
+  padding: 0.5em 1em;
+}
+
+.btn-reply {
+  @extend %btn;
+  @include set-background(color(primary));
+  font-size: 1.125rem;
+  padding: 0.5em 1em;
+}

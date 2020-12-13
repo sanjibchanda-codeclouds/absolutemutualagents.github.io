@@ -1,0 +1,195 @@
+/*....footer section
+...........................*/
+.section_footer {
+  @include set-background(color(light));
+  padding: $spacer 0;
+
+  .footer {
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: 1fr;
+    grid-gap: 3rem 1rem;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    @include media(">=lg") {
+      grid-template-columns: 1fr 250px;
+    }
+    @include media(">=xl") {
+      grid-template-columns: 1fr 350px;
+    }
+
+    .footer_left {
+      display: grid;
+      grid-template-rows: auto;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-gap: 2rem;
+
+      &_box:nth-of-type(1) {
+        @include border(right);
+      }
+      &_box {
+        h5 {
+          @include margin(bottom, 0.75);
+        }
+        p {
+          @include font-size($fs-sm);
+          @include margin(top, 1.25);
+
+          .title {
+            position: relative;
+            display: block;
+            font-weight: weight(bold);
+            @include font-size(1.125rem);
+            @include padding(left, 1.5);
+
+            &::before {
+              content: "\f095";
+              font-family: "Font Awesome 5 Free";
+              position: absolute;
+              left: 0;
+              top: 0;
+              color: $accent;
+              font-size: 1.125rem;
+              font-weight: weight(regualr);
+            }
+          }
+          .call::before {
+            content: "\f095";
+          }
+          .message::before {
+            content: "\f0e0";
+          }
+        }
+
+        a {
+          color: color(accent);
+
+          @include hover-focus() {
+            color: color(primary);
+            text-decoration: underline;
+          }
+        }
+
+        img {
+          max-width: 200px;
+        }
+
+        .link {
+          li + li {
+            @include margin(top, 0.75);
+          }
+        }
+
+        .social_link {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          @include margin(top, 1);
+
+          li + li {
+            @include margin(left, 0.5);
+          }
+
+          li {
+            position: relative;
+            width: 30px;
+            height: 30px;
+
+            &::before {
+              content: "";
+              position: absolute;
+              left: 0;
+              top: 0;
+              width: 30px;
+              height: 30px;
+              background: bg("youtube.png") no-repeat;
+              background-size: 30px;
+            }
+            &:nth-child(1)::before {
+              background: bg("youtube.png") no-repeat;
+              background-size: 30px;
+            }
+            &:nth-child(2)::before {
+              background: bg("facebook.png") no-repeat;
+              background-size: 30px;
+            }
+            &:nth-child(3)::before {
+              background: bg("linkedin.png") no-repeat;
+              background-size: 30px;
+            }
+            &:nth-child(4)::before {
+              background: bg("twitter.png") no-repeat;
+              background-size: 30px;
+            }
+            &:nth-child(5)::before {
+              background: bg("instagram.png") no-repeat;
+              background-size: 30px;
+            }
+            &:nth-child(6)::before {
+              background: bg("icon-yelp.png") no-repeat;
+              background-size: 30px;
+            }
+          }
+        }
+      }
+    }
+
+    .footer_right {
+      display: grid;
+      grid-template-rows: auto;
+      grid-template-columns: 2fr 1fr;
+      grid-gap: 0.5rem;
+
+      h5 {
+        grid-column: 1 / -1;
+        @include margin(bottom, 0.75);
+      }
+
+      .box_left {
+        ul {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: flex-start;
+          align-items: center;
+
+          li {
+            @include padding(right, 0.5);
+
+            span {
+              font-weight: weight(bold);
+            }
+          }
+        }
+
+        .trustpilot {
+          width: 150px;
+        }
+
+        .stars-5 {
+          width: 200px;
+        }
+      }
+      .box_right {
+        .forbescouncils {
+          width: 150px;
+        }
+      }
+    }
+  }
+}
+
+/*....copyright section
+...........................*/
+.section_copyright {
+  @include set-background(color(light));
+  padding: 0 0 $spacer;
+
+  .container > * + * {
+    margin-top: 1em;
+  }
+
+  p {
+    @include font-size($fs-sm);
+  }
+}

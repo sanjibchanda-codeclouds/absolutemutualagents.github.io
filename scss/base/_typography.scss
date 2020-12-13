@@ -1,0 +1,70 @@
+// Typography
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $ff-heading;
+  font-weight: weight(600);
+  line-height: $lh-heading;
+  color: color(accent);
+}
+p {
+  font-family: $ff-base;
+  font-weight: weight(400);
+  line-height: $lh-base;
+  color: color(accent);
+}
+
+// h1 {
+//   @include font-size($h1);
+// }
+// h2 {
+//   @include font-size($h2);
+// }
+// h3 {
+//   @include font-size($h3);
+// }
+// h4 {
+//   @include font-size($h4);
+// }
+// h5 {
+//   @include font-size($h5);
+// }
+// h6 {
+//   @include font-size($h6);
+// }
+// p {
+//   @include font-size($fs-base);
+// }
+small,
+.small {
+  @include font-size(0.875rem);
+}
+
+h1 {
+  font-size: 3rem;
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+}
+h2 {
+  font-size: 2rem;
+  font-size: clamp(2rem, 3vw, 3rem);
+}
+h3 {
+  font-size: 1.75rem;
+  font-size: clamp(1.75rem, 2vw, 2rem);
+}
+h4 {
+  font-size: 1.25rem;
+  font-size: clamp(1.25rem, 1.5vw, 1.5rem);
+}
+h5 {
+  font-size: 1.125rem;
+  font-size: clamp(1.125rem, 1.25vw, 1.25rem);
+}
+p {
+  font-size: 1rem;
+  font-size: clamp(1rem, 2vw, 1.125rem);
+}

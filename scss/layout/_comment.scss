@@ -1,0 +1,46 @@
+.comment_wrap {
+  ul {
+    @include margin(top, 2);
+
+    li + li {
+      @include border(top);
+      @include margin(top, 1.5);
+      @include padding(top, 1.5);
+    }
+    li {
+      @include padding(left, 3);
+
+      & > * + * {
+        @include margin(top, 1);
+      }
+
+      .title {
+        font-family: $ff-heading;
+        font-weight: weight(light);
+      }
+
+      .date {
+        @include font-size(0.875rem);
+        color: (lighten(color(accent), 40%));
+
+        span {
+          float: right;
+        }
+      }
+
+      ul {
+        li {
+          @include border(top);
+          @include margin(top, 1.5);
+          @include padding(top, 1.5);
+        }
+      }
+    }
+  }
+}
+
+.reply_box {
+  .form_container {
+    @include margin(top, 1.5);
+  }
+}

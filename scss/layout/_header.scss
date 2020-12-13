@@ -1,0 +1,64 @@
+/*....top section
+...........................*/
+.section_top {
+  ul {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0.5rem 0;
+
+    li {
+      position: relative;
+      @include border(right);
+
+      &:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 60%;
+        transform: translateY(-50%);
+        width: 20px;
+        height: 20px;
+      }
+      &:nth-child(1):before {
+        background: bg("e-sign.png") no-repeat;
+        background-size: 100%;
+      }
+      &:nth-child(2):before {
+        background: bg("choice-planning.png") no-repeat;
+        background-size: 100%;
+      }
+
+      & + li {
+        @include border(right, 0);
+        @include margin(left, 1);
+      }
+
+      a {
+        color: color(accent);
+        padding: 0.5rem 1rem 0.5rem 1.75rem;
+        font-size: $fs-sm;
+        font-weight: weight(smbold);
+
+        @include hover {
+          color: color(primary);
+        }
+      }
+    }
+  }
+}
+
+/*....header section
+...........................*/
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @include padding(bottom, 0.5);
+  position: relative;
+
+  &_logo {
+    width: 150px;
+  }
+}
+
+@import "../components/menu";

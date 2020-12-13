@@ -1,0 +1,153 @@
+// .box {
+//   @include set-background(color(dark));
+//   padding: 1rem;
+// }
+
+/*....hero section
+...........................*/
+.section_hero {
+  @include size(100%);
+  background-image: bg("hero.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-color: lighten(color(primary), 10%);
+  background-blend-mode: multiply;
+  border-radius: 700px/50px;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+
+  &_box {
+    @include size(100%, 100vh);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    h1 {
+      color: color(light);
+      @include margin(bottom, 0.5);
+    }
+
+    p {
+      font-size: 1.25rem;
+      font-size: clamp(1.25rem, 1.75vw, 1.75rem);
+      line-height: 1.4;
+      color: color(light);
+      font-family: $ff-heading;
+      @include margin(bottom, 2);
+    }
+  }
+}
+
+/*....seen section
+...........................*/
+.section_seen {
+  padding: 2.5rem 0;
+  text-align: center;
+
+  h6 {
+    font-size: 1.25rem;
+    font-weight: weight(light);
+    @include margin(bottom, 0.75);
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+
+    li {
+      width: 150px;
+      padding: 0 1rem;
+    }
+  }
+}
+
+/*....companies section
+...........................*/
+.section_Companies {
+  @include set-background(color(bg));
+  padding: $spacer 0;
+  text-align: center;
+
+  h3 {
+    @include margin(bottom, 2);
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+
+    li {
+      width: 250px;
+      padding: 1rem;
+    }
+  }
+}
+
+/*....feature section
+...........................*/
+.section_feature {
+  @include set-background(color(light));
+  padding: $spacer 0;
+
+  .feature {
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    grid-template-rows: auto;
+    grid-gap: 3rem 1.5rem;
+
+    img {
+      max-width: 100px;
+      @include margin(bottom, 2.5);
+    }
+
+    h3 {
+      font-weight: weight(regular);
+      color: color(primary);
+      @include margin(bottom, 1);
+    }
+
+    p {
+      font-size: 1.125rem;
+    }
+
+    a {
+      text-decoration: underline;
+    }
+  }
+}
+
+/*....review section
+...........................*/
+.section_review {
+  @include set-background(color(bg));
+  padding: $spacer 0;
+
+  h3 {
+    text-align: center;
+    @include margin(bottom, 2);
+  }
+}
+
+@import "../layout/review";
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.25),
+  only screen and (min--moz-device-pixel-ratio: 1.25),
+  only screen and (-o-min-device-pixel-ratio: 1.25/1),
+  only screen and (min-device-pixel-ratio: 1.25),
+  only screen and (min-resolution: 200dpi),
+  only screen and (min-resolution: 1.25dppx) {
+  .section_hero {
+    background-image: bg("hero@2x.jpg");
+    background-size: cover;
+  }
+}

@@ -1,0 +1,286 @@
+//grid area design
+%grid_area1 {
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: 1fr;
+  grid-gap: 0 2rem;
+  justify-content: space-between;
+  align-items: flex-start;
+  grid-template-areas:
+    "quotes"
+    "content";
+
+  @include media(">=md") {
+    grid-template-columns: 300px 1fr;
+    grid-template-areas: "quotes content";
+  }
+  @include media(">=lg") {
+    grid-template-columns: 350px 1fr;
+  }
+}
+
+%grid_area2 {
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: 1fr;
+  grid-gap: 0 2rem;
+  justify-content: space-between;
+  align-items: flex-start;
+  grid-template-areas:
+    "quotes"
+    "content";
+
+  @include media(">=md") {
+    grid-template-columns: 1fr 300px;
+    grid-template-areas: "content quotes";
+  }
+  @include media(">=lg") {
+    grid-template-columns: 1fr 350px;
+  }
+}
+
+/*....content section
+...........................*/
+.section_content {
+  @include set-background(color(light));
+
+  .content_wrap1 {
+    @extend %grid_area1;
+  }
+
+  .content_wrap2 {
+    @extend %grid_area2;
+  }
+
+  .content_area {
+    &-sm {
+      max-width: 900px;
+    }
+
+    &-quotes {
+      grid-area: quotes;
+      margin: $spacer 0;
+      position: relative;
+
+      @include media("<md") {
+        margin: ($spacer / 2) 0;
+      }
+
+      @include media(">=md") {
+        position: sticky;
+        top: 2rem;
+      }
+
+      &-title {
+        font-size: 1.125rem;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: -0.25px;
+        font-family: $ff-heading;
+        font-weight: weight(smbold);
+        padding: 0.75rem;
+        @include set-background(color(primary));
+        @include bd-radius(2px);
+      }
+
+      &-content {
+        padding: 1rem;
+        @include set-background(color(bg-shade2));
+
+        ul {
+          @include margin(bottom, 0.75);
+          li {
+            position: relative;
+            @include font-size($fs-sm);
+            @include padding(left, 1.5);
+            @include padding(bottom, 0.25);
+
+            &:before {
+              content: "\f058";
+              font-family: "Font Awesome 5 Free";
+              position: absolute;
+              left: 0;
+              top: 0;
+              color: $primary;
+              font-size: 1rem;
+              font-weight: weight(bold);
+            }
+          }
+        }
+
+        h6 {
+          text-align: center;
+          @include font-size(1rem);
+          @include margin(bottom, 1);
+          color: (lighten(color(accent), 30%));
+        }
+
+        p {
+          @include margin(top, 1);
+          color: (lighten(color(accent), 40%));
+        }
+
+        img {
+          margin: 0 auto;
+          display: block;
+        }
+      }
+    }
+
+    &-content {
+      grid-area: content;
+
+      .content_box + .content_box {
+        @include border(top);
+      }
+      .content_box {
+        @include set-background(color(light));
+        padding: $spacer 0;
+        position: relative;
+        @include content-gap();
+
+        @include media("<md") {
+          padding: ($spacer / 2) 0;
+        }
+
+        .heading-title {
+          position: relative;
+          @include margin(top, 2);
+          @include margin(bottom, 2);
+          @include padding(left, 4);
+
+          img {
+            position: absolute;
+            left: 0;
+            top: -0.5rem;
+            width: 50px;
+          }
+        }
+
+        .start5 {
+          max-width: 100%;
+          width: 400px;
+        }
+
+        .burial-insurance {
+          width: 350px;
+        }
+      }
+
+      a {
+        text-decoration: underline;
+        font-weight: weight(smbold);
+      }
+
+      .square-shape {
+        shape-outside: polygon(0% 100%, 0% 0%, 100% 0%, 100% 100%);
+      }
+
+      .circle-shape {
+        shape-outside: circle(50%);
+      }
+
+      .post_img {
+        @include size(250px, auto);
+        max-width: 100%;
+        float: right;
+        margin: 1.25rem;
+      }
+      .post_img-sm {
+        @extend .post_img;
+        @include size(125px, auto);
+      }
+
+      blockquote {
+        font-size: 1.5rem;
+        font-size: clamp(1.5rem, 2.5vw, 1.75rem);
+        line-height: 1.4;
+        margin: 2em auto;
+        font-family: $ff-script;
+        max-width: 480px;
+        @include content-gap();
+
+        a {
+          margin: 0;
+        }
+      }
+
+      .note {
+        @include border(top);
+        @include border(bottom);
+        padding: 1rem 2rem;
+        @include content-gap();
+      }
+
+      .disclaimer {
+        font-family: $ff-heading;
+        font-weight: weight(light);
+
+        p {
+          font-size: 1.125rem;
+          font-size: clamp(1.125rem, 2vw, 1.25rem);
+        }
+      }
+
+      .quote {
+        font-family: monospace;
+        font-size: 1.125rem;
+      }
+
+      .review_wrap {
+        @include set-background(color(bg));
+        padding: 1.25rem;
+        height: 500px;
+        overflow-y: scroll;
+      }
+
+      .content_box-sm {
+        border-top: 0 !important;
+        padding: 2em 0;
+        @include content-gap();
+      }
+
+      .content-about {
+        border: 1px solid $border;
+        @include bd-radius();
+        padding: 1.25rem;
+        @include content-gap();
+
+        .post_img {
+          float: left;
+          width: 200px;
+        }
+      }
+
+      .slider_box {
+        @include clearfix();
+        &-left {
+          width: 30%;
+          float: left;
+        }
+        &-right {
+          width: 70%;
+          float: left;
+
+          .review_box {
+            padding: 1rem 1.5rem;
+            border: 0;
+          }
+        }
+        @include media("<md") {
+          & > div {
+            width: 100%;
+          }
+        }
+        // display: grid;
+        // grid-template-columns: 1fr;
+        // grid-template-rows: auto;
+        // grid-gap: 1rem;
+
+        // @include media(">=md") {
+        //   grid-template-columns: 200px 1fr;
+        // }
+      }
+    }
+  }
+}

@@ -1,0 +1,92 @@
+.review {
+  h4,
+  p {
+    text-align: center;
+  }
+  .stars-5 {
+    width: 120px;
+    vertical-align: top;
+  }
+  .trustpilot {
+    width: 100px;
+    vertical-align: top;
+  }
+}
+.review_wrap {
+  @include margin(top, 2);
+  @include margin(bottom, 3);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  grid-template-rows: auto;
+  grid-gap: 1.5rem;
+}
+.review_box {
+  @include border(bottom);
+  @include padding(bottom, 1);
+
+  &_title {
+    @include margin(bottom, 1);
+
+    .stars-5 {
+      width: 100px;
+    }
+    span {
+      float: right;
+    }
+    p {
+      @include font-size(0.875rem);
+      text-align: left;
+      color: (lighten(color(accent), 40%));
+    }
+  }
+
+  &_content {
+    & > * + * {
+      @include margin(top, 0.5);
+    }
+
+    .title {
+      font-weight: weight(bold);
+    }
+
+    p {
+      text-align: left;
+      @include font-size(0.875rem);
+    }
+
+    a {
+      display: block;
+      text-align: center;
+    }
+
+    blockquote {
+      @include set-background(color(light));
+      @include border(left, 3px, $primary);
+      padding: 1rem 1rem 1rem 2rem;
+      position: relative;
+
+      &:before {
+        content: "\f3e5";
+        font-family: "Font Awesome 5 Free";
+        position: absolute;
+        left: 0.5rem;
+        top: 1rem;
+        color: #70b77e;
+        font-size: 1rem;
+        font-weight: 700;
+      }
+
+      .title {
+        color: (lighten(color(accent), 40%));
+        font-weight: weight(regular);
+        @include font-size(0.875rem);
+        margin: 0;
+      }
+
+      p {
+        @include margin(top, 0.5);
+        @include font-size(0.75rem);
+      }
+    }
+  }
+}

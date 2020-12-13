@@ -1,0 +1,50 @@
+// Default styles
+.container {
+  width: 100%;
+  max-width: 100%;
+  @include padding(left, 0.938);
+  @include padding(right, 0.938);
+  @include m-auto();
+  box-sizing: border-box;
+
+  @include media(">=lg") {
+    width: 73.125rem;
+  }
+}
+
+.clearfix {
+  @include clearfix();
+}
+
+::selection {
+  @include set-background(color(primary));
+}
+
+.text-center {
+  @include text(center);
+}
+
+.align-center {
+  @include align-center();
+}
+
+hr {
+  @include line();
+}
+
+.success {
+  color: color(success);
+}
+.danger {
+  color: color(error);
+}
+.warning {
+  color: color(warning);
+}
+.underline {
+  text-decoration: underline;
+}
+
+.box_left {
+  float: left !important;
+}
